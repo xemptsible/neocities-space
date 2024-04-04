@@ -21,7 +21,7 @@
     --nav-hover-color: #dadada;
     --txt-hover-color: var(--bg-color);
   }
-  
+
   header {
     border: 1px solid;
   }
@@ -39,7 +39,7 @@
   .nav-option:focus {
     background-color: var(--nav-hover-color);
     color: var(--txt-hover-color);
-  }  
+  }
 
   .selected {
     background-color: var(--nav-selected-color);
@@ -62,14 +62,14 @@
   }
 
   a {
-    color:inherit;
+    color: inherit;
   }
 
   .nav-option:hover,
   .nav-option:focus {
     background-color: var(--nav-hover-color);
     color: var(--txt-hover-color);
-  }  
+  }
 
   .selected {
     background-color: var(--nav-selected-color);
@@ -112,11 +112,10 @@ nav li {
   list-style: none;
 }
 
-
 a:focus,
 a:active {
   outline: 4px solid var(--highlight-color);
-  outline-offset: 4px; 
+  outline-offset: 4px;
   z-index: 0;
 }
 
@@ -127,18 +126,17 @@ a:not(.nav-option) {
 a:hover:not(.nav-option),
 a:focus:not(.nav-option),
 a:visited:hover:not(.nav-option),
-a:visited:focus:not(.nav-option)
- { 
+a:visited:focus:not(.nav-option) {
   color: #f7f7f7;
   background-color: var(--link-color);
 }
 
-a:visited:not(.nav-option) { 
-  color: var(--link-visited-color); 
+a:visited:not(.nav-option) {
+  color: var(--link-visited-color);
 }
 
 .nav-option {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 0.5rem 1rem;
 }
 
@@ -147,5 +145,5 @@ a:visited:not(.nav-option) {
 }
 
 .personal-badge {
-  font-family: 'Archivo Bold', sans-serif;
+  font-family: "Archivo Bold", sans-serif;
 }
