@@ -59,12 +59,11 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 0;
-
+  min-height: 100dvh;
   /* 
     Add custom fonts 
   */
   font-family: "Archivo", sans-serif;
-
 }
 
 /*

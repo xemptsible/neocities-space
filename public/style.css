@@ -35,8 +35,8 @@
     color: inherit;
   }
 
-  nav a:hover,
-  nav a:focus {
+  .nav-option:hover,
+  .nav-option:focus {
     background-color: var(--nav-hover-color);
     color: var(--txt-hover-color);
   }  
@@ -65,8 +65,8 @@
     color:inherit;
   }
 
-  nav a:hover,
-  nav a:focus {
+  .nav-option:hover,
+  .nav-option:focus {
     background-color: var(--nav-hover-color);
     color: var(--txt-hover-color);
   }  
@@ -83,6 +83,22 @@
 
 html {
   color-scheme: dark light;
+}
+
+
+header {
+  margin-bottom: 1rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 nav ul {
@@ -108,29 +124,24 @@ a:active {
   z-index: 0;
 }
 
-header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .archive-list {
   list-style: none;
 }
 
-.archive-list a {
+a:not(.nav-option) {
   text-decoration: underline;
 }
 
-.archive-list a:hover,
-.archive-list a:focus,
-.archive-list a:visited:hover,
-.archive-list a:visited:focus
+a:hover:not(.nav-option),
+a:focus:not(.nav-option),
+a:visited:hover:not(.nav-option),
+a:visited:focus:not(.nav-option)
  { 
   color: #f7f7f7;
   background-color: var(--link-color);
 }
 
-.archive-list a:visited { 
+a:visited:not(.nav-option) { 
   color: var(--link-visited-color); 
 }
 
