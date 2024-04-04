@@ -49,12 +49,6 @@
        url(fonts/archivo-italic-webfont.woff) format('woff'),
 }
 
-url(archivo-bold-webfont.woff2) format('woff2'),
-url(archivo-bold-webfont.woff) format('woff'),
-url(archivo-italic-webfont.woff2) format('woff2'),
-url(archivo-italic-webfont.woff) format('woff');
-
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
