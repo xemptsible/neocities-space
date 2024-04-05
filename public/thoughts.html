@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,12 @@
 
     <link href="reset.css" rel="stylesheet" type="text/css" media="all" />
     <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- https://www.paulirish.com/2009/avoiding-the-fouc-v3/ -->
+    <script>
+      (function (H) {
+        H.className = H.className.replace(/\bno-js\b/, "js");
+      })(document.documentElement);
+    </script>
   </head>
 
   <body>
@@ -41,7 +47,10 @@
 
     <footer>
       <span class="cc-copyright-owner">© 2024 m-t -</span>
-      <a class="cc-link" href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">
+      <a
+        class="cc-link"
+        href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
+      >
         <img
           class="cc=logo"
           alt="Compact Creative Commons Attribution 4.0 International logo"
