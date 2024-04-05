@@ -59,7 +59,13 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 0;
+
+  /* 
+    Dynamic viewport height
+    Never use margin together, apply seperately to HTML element 
+  */
   min-height: 100dvh;
+  
   /* 
     Add custom fonts 
   */

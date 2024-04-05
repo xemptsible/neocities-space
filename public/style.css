@@ -112,6 +112,11 @@ nav li {
   list-style: none;
 }
 
+.archive-list {
+  list-style: none;
+  margin-inline-start: 1rem;
+}
+
 a:focus,
 a:active {
   outline: 4px solid var(--highlight-color);
@@ -140,10 +145,19 @@ a:visited:not(.nav-option) {
   padding: 0.5rem 1rem;
 }
 
-.archive-list {
-  list-style: none;
-}
-
 .personal-badge {
   font-family: "Archivo Bold", sans-serif;
+}
+
+footer {
+  margin: 1rem auto 1rem auto;
+}
+
+.cc-copyright-owner {
+  display: inline-block;
+}
+
+.cc-link {
+  display: inline-block;
+  vertical-align: middle;
 }
