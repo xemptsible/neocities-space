@@ -2,18 +2,58 @@
   --highlight-color: #35b8ff;
   --link-color: #e47900;
   --link-visited-color: #cf6f00;
-  --line-height-header: 1;
+  --line-height-1: 1;
 
   --bg-color: #f7f7f7;
   --txt-color: #222222;
 
-  --nav-selected-color: #2c2c2c;
+  --nav-selected-color: #212121;
   --nav-hover-color: #535353;
   --txt-hover-color: var(--bg-color);
 }
 
+@font-face {
+  font-family: "Archivo";
+  src: url(/test/fonts/archivo-regular-webfont.woff2) format("woff2"),
+    url(/test/fonts/archivo-regular-webfont.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Archivo Bold";
+  src: url(/test/fonts/archivo-bold-webfont.woff2) format("woff2"),
+    url(/test/fonts/archivo-bold-webfont.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Archivo Italic";
+  src: url(/test/fonts/archivo-italic-webfont.woff2) format("woff2"),
+    url(/test/fonts/archivo-italic-webfont.woff) format("woff");
+}
+
+body {
+  /* 
+    Set max width for the site to be compatible for most screensize 
+  */
+  max-width: 800px;
+  margin: auto;
+  padding: 0;
+
+  /* 
+    Dynamic viewport height
+    Never use margin together, apply seperately to HTML element 
+  */
+  min-height: 100dvh;
+
+  /* 
+    Add custom fonts 
+  */
+  font-family: "Archivo", sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
+    --highlight-color: #008fdb;
+
     --bg-color: #2c2c2c;
     --txt-color: #e9e9e9;
 
@@ -85,11 +125,6 @@ html {
   color-scheme: dark light;
 }
 
-header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -104,17 +139,38 @@ main {
 nav ul {
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 nav li {
-  line-height: var(--line-height-header);
-  display: flex;
+  line-height: var(--line-height-1);
   list-style: none;
+  display: flex;
+}
+
+nav li a {
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: .75em;
 }
 
 .archive-list {
   list-style: none;
-  margin-inline-start: 1rem;
+  margin-block-start: .25em;
+  padding: 0;
 }
 
 a:focus,
@@ -128,15 +184,15 @@ a:not(.nav-option) {
   text-decoration: underline;
 }
 
-a:hover:not(.nav-option),
-a:focus:not(.nav-option),
-a:visited:hover:not(.nav-option),
-a:visited:focus:not(.nav-option) {
+a:hover:not(.nav-option, .cc-link),
+a:focus:not(.nav-option, .cc-link),
+a:visited:hover:not(.nav-option, .cc-link),
+a:visited:focus:not(.nav-option, .cc-link) {
   color: #f7f7f7;
   background-color: var(--link-color);
 }
 
-a:visited:not(.nav-option) {
+a:visited:not(.nav-option, .cc-link) {
   color: var(--link-visited-color);
 }
 
@@ -149,15 +205,12 @@ a:visited:not(.nav-option) {
   font-family: "Archivo Bold", sans-serif;
 }
 
-footer {
-  margin: 1rem auto 1rem auto;
+.cc-footer {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
 }
 
-.cc-copyright-owner {
-  display: inline-block;
-}
-
-.cc-link {
-  display: inline-block;
-  vertical-align: middle;
+.cc-copyright {
+  margin-right: 4px;
 }
