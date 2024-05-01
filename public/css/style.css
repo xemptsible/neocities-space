@@ -1,17 +1,3 @@
-:root {
-  --highlight-color: #35b8ff;
-  --link-color: #e47900;
-  --link-visited-color: #cf6f00;
-  --line-height-1: 1;
-
-  --bg-color: #f7f7f7;
-  --txt-color: #222222;
-
-  --nav-selected-color: #212121;
-  --nav-hover-color: #535353;
-  --txt-hover-color: var(--bg-color);
-}
-
 @font-face {
   font-family: "Archivo";
   src: url(https://m-t.neocities.org/fonts/archivo-regular-webfont.woff2)
@@ -34,6 +20,20 @@
       format("woff2"),
     url(https://m-t.neocities.org/fonts/archivo-italic-webfont.woff)
       format("woff");
+}
+
+:root {
+  --highlight-color: #35b8ff;
+  --link-color: #e47900;
+  --link-visited-color: #cf6f00;
+  --line-height-1: 1;
+
+  --bg-color: #f7f7f7;
+  --txt-color: #222222;
+
+  --nav-selected-color: #212121;
+  --nav-hover-color: #535353;
+  --txt-hover-color: var(--bg-color);
 }
 
 body {
@@ -168,17 +168,6 @@ nav li a {
   text-decoration: none;
 }
 
-.archive-list {
-  list-style: none;
-  padding: 0;
-  margin-block-start: 0.5em;
-  margin-block-end: 0;
-}
-
-.nested-archive-list li {
-  margin-block-start: 0.4em;
-  margin-block-end: 0;
-}
 
 p,
 h1,
@@ -190,6 +179,15 @@ h6 {
   line-height: calc(1em + 0.5rem);
   margin-block-start: 0.67em;
   margin-block-end: 0;
+}
+
+.nav-option {
+  font-size: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.personal-badge {
+  font-family: "Archivo Bold", sans-serif;
 }
 
 a:focus,
@@ -215,13 +213,23 @@ a:visited:not(.nav-option, .cc-link) {
   color: var(--link-visited-color);
 }
 
-.nav-option {
-  font-size: 2.5rem;
-  padding: 0.5rem 1rem;
+.archive-list {
+  list-style: none;
 }
 
-.personal-badge {
-  font-family: "Archivo Bold", sans-serif;
+.archive-list,
+ol {
+  margin: 0;
+}
+
+.nested-archive-list li,
+.archive-list li,
+ol li {
+  margin-block-start: 0.4em;
+}
+
+.img-body {
+  margin: 0.4em 0;
 }
 
 .cc-footer {
@@ -232,13 +240,4 @@ a:visited:not(.nav-option, .cc-link) {
 
 .cc-copyright {
   margin-right: 4px;
-}
-
-.cc-logo {
-  display: block;
-}
-
-#vm-img {
-  display: block;
-  margin: 0.5em 0;
 }
