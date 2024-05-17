@@ -1,32 +1,25 @@
 @font-face {
   font-family: "Archivo";
-  src: url(https://m-t.neocities.org/fonts/archivo-regular-webfont.woff2)
-      format("woff2"),
-    url(https://m-t.neocities.org/fonts/archivo-regular-webfont.woff2)
-      format("woff");
+  src: url(/fonts/archivo-regular-webfont.woff2) format("woff2"),
+    url(/fonts/archivo-regular-webfont.woff) format("woff");
 }
 
 @font-face {
   font-family: "Archivo Bold";
-  src: url(https://m-t.neocities.org/fonts/archivo-bold-webfont.woff2)
-      format("woff2"),
-    url(https://m-t.neocities.org/fonts/archivo-bold-webfont.woff)
-      format("woff");
+  src: url(/fonts/archivo-bold-webfont.woff2) format("woff2"),
+    url(/fonts/archivo-bold-webfont.woff) format("woff");
 }
 
 @font-face {
   font-family: "Archivo Italic";
-  src: url(https://m-t.neocities.org/fonts/archivo-italic-webfont.woff2)
-      format("woff2"),
-    url(https://m-t.neocities.org/fonts/archivo-italic-webfont.woff)
-      format("woff");
+  src: url(/fonts/archivo-italic-webfont.woff2) format("woff2"),
+    url(/fonts/archivo-italic-webfont.woff) format("woff");
 }
 
 :root {
   --highlight-color: #35b8ff;
   --link-color: #e47900;
   --link-visited-color: #cf6f00;
-  --line-height-1: 1;
 
   --bg-color: #f7f7f7;
   --txt-color: #222222;
@@ -49,10 +42,9 @@ body {
   */
   min-height: 100dvh;
 
-  /* 
-    Add custom fonts 
-  */
-  font-family: "Archivo", sans-serif;
+  /* font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+    source-sans-pro, sans-serif; */
+  font-family: 'Archivo', sans-serif;
 }
 
 img,
@@ -159,7 +151,7 @@ nav ul {
 }
 
 nav li {
-  line-height: var(--line-height-1);
+  line-height: 1;
   list-style: none;
   display: flex;
 }
@@ -167,7 +159,6 @@ nav li {
 nav li a {
   text-decoration: none;
 }
-
 
 p,
 h1,
@@ -187,7 +178,8 @@ h6 {
 }
 
 .personal-badge {
-  font-family: "Archivo Bold", sans-serif;
+  /* font-weight: bolder; */
+  font-family: 'Archivo Bold';
 }
 
 a:focus,
@@ -234,6 +226,7 @@ ol li {
 
 .cc-footer {
   display: flex;
+  padding-top: 2rem;
   justify-content: center; /* Horizontal centering */
   align-items: center; /* Vertical centering */
 }
