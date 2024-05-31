@@ -27,6 +27,8 @@
   --nav-selected-color: #212121;
   --nav-hover-color: #535353;
   --txt-hover-color: var(--bg-color);
+
+  --default-line-height: calc(1em + 0.7rem);
 }
 
 body {
@@ -44,7 +46,7 @@ body {
 
   /* font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
     source-sans-pro, sans-serif; */
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
 }
 
 img,
@@ -69,7 +71,7 @@ svg {
   }
 
   header {
-    border: 1px solid;
+    outline: 1px solid;
   }
 
   body {
@@ -99,7 +101,7 @@ svg {
 
 @media (prefers-color-scheme: light) {
   header {
-    border: 1px solid;
+    outline: 2px solid;
   }
 
   body {
@@ -151,7 +153,6 @@ nav ul {
 }
 
 nav li {
-  line-height: 1;
   list-style: none;
   display: flex;
 }
@@ -160,16 +161,17 @@ nav li a {
   text-decoration: none;
 }
 
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  line-height: calc(1em + 0.5rem);
-  margin-block-start: 0.67em;
-  margin-block-end: 0;
+h6,
+p,
+.archive-list {
+  line-height: var(--default-line-height);
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
 }
 
 .nav-option {
@@ -178,8 +180,7 @@ h6 {
 }
 
 .personal-badge {
-  /* font-weight: bolder; */
-  font-family: 'Archivo Bold';
+  font-family: "Archivo Bold";
 }
 
 a:focus,
@@ -205,19 +206,20 @@ a:visited:not(.nav-option, .cc-link) {
   color: var(--link-visited-color);
 }
 
-.archive-list {
+.archive-list:not(ol) {
   list-style: none;
 }
 
 .archive-list,
 ol {
-  margin: 0;
+  padding-left: 0;
 }
 
-.nested-archive-list li,
+code,
 .archive-list li,
+.nested-archive-list li,
 ol li {
-  margin-block-start: 0.4em;
+  line-height: var(--default-line-height);
 }
 
 .img-body {
@@ -233,4 +235,24 @@ ol li {
 
 .cc-copyright {
   margin-right: 4px;
+}
+
+abbr {
+  cursor: help;
+}
+
+code {
+  background-color: rgb(59, 59, 59);
+  color: #ffb000;
+  outline: 1px solid;
+  word-wrap: break-word;
+}
+
+.code-demo {
+  padding: 1rem 0 1rem 2px;
+}
+
+.post-meta,
+abbr {
+  font-family: "Archivo Italic";
 }

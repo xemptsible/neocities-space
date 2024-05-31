@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>firefox's smart bookmark</title>
+
+    <link
+      href="/test/css/modern-normalize.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      href="/test/css/style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <script src="/test/js/fouc.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="/test/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/test/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/test/images/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="/test/images/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/test" class="personal-badge nav-option">
+              m-<span class="personal-color">t</span>
+            </a>
+          </li>
+          <li>
+            <a href="/test/thoughts/" class="selected nav-option"> thoughts </a>
+          </li>
+          <li>
+            <a href="/test/storage/" class="nav-option"> storage </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>How to add (or restore) Smart Bookmark folders in Firefox</h1>
+      <div class="post-meta">
+        Posted: <time datetime="2024-5-30">2024-5-30</time>
+      </div>
+
+      <h2>Background</h2>
+      <p>
+        Smart Bookmark folders were added back in
+        <a
+          href="https://website-archive.mozilla.org/www.mozilla.org/firefox_releasenotes/en-us/firefox/3.0/releasenotes/"
+          >Firefox 3</a
+        >, after it switched from
+        <a
+          href="https://firefox-source-docs.mozilla.org/browser/places/index.html#history-and-bookmarks"
+          ><abbr title="Resource Description Format">RDF</abbr> to SQLite
+          database </a
+        >, with <a href="https://wiki.mozilla.org/Places">Places</a> system
+        acting as a way for Firefox's front-end to interact with the database
+        and manage the bookmarks.
+      </p>
+      <p>
+        This feature was present up until Firefox 63, where the folders are no
+        longer created for new installs and profiles. Even the
+        <a
+          href="https://support.mozilla.org/en-US/kb/restore-default-smart-bookmarks-folders"
+          >preference</a
+        >
+        meant for restoring those folders is now gone.
+      </p>
+      <p>
+        Despite that, the Places query still works, so let's figure out how to
+        add the smart bookmarks.
+      </p>
+
+      <h2>Add a bookmark</h2>
+      <p>
+        Since it is called Smart Bookmark, we need to add one in order for this
+        to work:
+      </p>
+      <ol class="archive-list">
+        <li>Press Ctrl/Cmd + Shift + B to open the bookmark toolbar</li>
+        <li>Right click on the toolbar</li>
+        <li>Click "Add Bookmark..."</li>
+      </ol>
+      <p>The URL field is where the magic begins.</p>
+
+      <h3>Most Visited</h3>
+      <code class="code-demo">place:queryType=0&sort=8&maxResults=30 </code>
+      <ul class="archive-list">
+        <li><code>queryType=0</code> - search by history</li>
+        <li><code>sort=8</code> - sort by visit count</li>
+        <li>
+          <code>maxResults</code> - set max number of results to return (30 in
+          this case)
+        </li>
+      </ul>
+
+      <h3>Recent Tags</h3>
+      <code class="code-demo">place:type=6&sort=14&maxResults=10</code>
+      <ul class="archive-list">
+        <li><code>type=6</code> - results as tag query</li>
+        <li>
+          <code>sort=14</code> - sort by last modified date, most recent first
+        </li>
+        <li><code>maxResults</code> - set max number of results to return</li>
+      </ul>
+
+      <h3>Recent Bookmarks</h3>
+      <code class="code-demo"
+        >place:folder=BOOKMARKS_MENU&folder=UNFILED_BOOKMARKS&folder=TOOLBAR&queryType=1&sort=12&excludeItemIfParentHasAnnotation=livemark%2FfeedURI&maxResults=10&excludeQueries=1</code
+      >
+      <ul class="archive-list">
+        <li><code>folder</code> - folder that is queried</li>
+        <li><code>queryType=1</code> - search by bookmarks</li>
+        <li><code>sort=12</code> - sort by date added, most recent first</li>
+        <li>
+          <code>excludeItemIfParentHasAnnotation=livemark%2FfeedURI</code> -
+          exclude item whose parent has this annotation from the bookmark query
+          results (doesn't seem to work with
+          <a href="https://support.mozilla.org/en-US/kb/live-bookmarks">
+            Livemarks</a
+          >
+          extension and is
+          <a href="https://support.mozilla.org/en-US/kb/live-bookmarks">
+            another bygone feature</a
+          >
+          of Firefox).
+        </li>
+        <li>
+          <code>maxResults=10</code> - set max number of results to return
+        </li>
+        <li>
+          <code>excludeQueries=1</code> - excludes queries from the query
+          results (queries as in searches?)
+        </li>
+      </ul>
+
+      <h3>Reference</h3>
+      <ul class="archive-list">
+        <li>
+          <a href="https://developer.mozilla.org.cach3.com/en/Places_query_URIs"
+            >https://developer.mozilla.org.cach3.com/en/Places_query_URIs</a
+          >
+        </li>
+        <li>
+          <a href="https://forums.mozillazine.org/viewtopic.php?t=629560">
+            https://forums.mozillazine.org/viewtopic.php?t=629560</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://reddit.com/r/firefox/comments/2i4qcy/smart_bookmarks_a_quick_guide/"
+          >
+            https://reddit.com/r/firefox/comments/2i4qcy/smart_bookmarks_a_quick_guide/</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://wiki.mozilla.org/images/d/d5/Places.sqlite.schema3.pdf"
+          >
+            https://wiki.mozilla.org/images/d/d5/Places.sqlite.schema3.pdf</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://firefox-source-docs.mozilla.org/browser/places/index.html"
+          >
+            https://firefox-source-docs.mozilla.org/browser/places/index.html</a
+          >
+        </li>
+      </ul>
+    </main>
+
+    <footer class="cc-footer">
+      <span class="cc-copyright">© 2024 m-t - </span>
+      <a class="cc-link" href="https://creativecommons.org/licenses/by-sa/4.0/">
+        <img
+          class="cc-logo"
+          alt="Compact Creative Commons Attribution 4.0 International logo"
+          src="/test/license/by.svg"
+        />
+      </a>
+    </footer>
+  </body>
+</html>
